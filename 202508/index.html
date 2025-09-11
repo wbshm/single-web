@@ -148,6 +148,11 @@
       .choice { background: linear-gradient(180deg, #ffffff, #fffaf6); border:1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); }
       .choice .who { font-weight: 700; color: var(--accent); }
       .choice .what { margin-top: 6px; color:#444; }
+      /* 领奖流程折叠 */
+      #flow.flow-collapsed .steps,
+      #flow.flow-collapsed .choice-cards { display: none; }
+      .flow-summary { display:flex; align-items:center; gap:8px; flex-wrap: wrap; padding: 10px 12px; border:1px dashed #aee7f3; background:#f6fbff; color:#0a6a7b; border-radius: 12px; }
+      .flow-toggle { margin-top: 10px; display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid #aee7f3; background: linear-gradient(180deg, #e9f9ff, #d9f3fb); color:#0a6a7b; font-weight:700; cursor:pointer; }
       /* 规则卡片化 */
       .rule-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
       .rule-card { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 10px 12px; box-shadow: var(--shadow); }
@@ -269,8 +274,8 @@
           <a href="#quick" role="menuitem">步骤</a>
           <a href="#time" role="menuitem">时间</a>
           <a href="#boosts" role="menuitem">加成</a>
-          <a href="#rules" role="menuitem">规则</a>
           <a href="#flow" role="menuitem">领奖</a>
+          <a href="#rules" role="menuitem">规则</a>
           <a href="#join" role="menuitem">参与方式</a>
           <a href="#promo" role="menuitem">宣传</a>
         </div>
@@ -307,7 +312,7 @@
           <div class="award">
             <div class="ribbon">NO.3</div>
             <div class="tag">第三名</div>
-            <div class="desc">瑞幸咖啡礼品卡（面值100）</div>
+            <div class="desc">瑞幸咖啡礼品卡</div>
           </div>
           <div class="award">
             <div class="tag">第 4-9 名</div>
@@ -419,8 +424,10 @@
         <button class="rule-toggle" id="ruleToggle">展开全部规则</button>
       </section>
 
-      <section id="flow">
+      <section id="flow" class="flow-collapsed">
         <h2><span class="dot"></span> 领奖流程</h2>
+        <div class="flow-summary">1 联系客服 · 2 提交截图 · 3 选择/登记</div>
+        <button class="flow-toggle" type="button" id="flowToggle">展开详情</button>
         <div class="steps">
           <div class="step">
             <div class="n">1</div>
@@ -460,10 +467,10 @@
       </section>
 
       <section id="promo">
-        <h2><span class="dot"></span> 宣传与素材</h2>
+        <h2><span class="dot"></span> 投稿参考</h2>
         <div class="promo-grid">
           <div class="promo-card">
-            <h3>投稿参考</h3>
+            <h3>图片与视频</h3>
             <ul class="list-check" style="margin-top:6px;">
               <li>图文：重点在第一张</li>
               <li>视频：封面是点击的秘诀</li>
@@ -477,7 +484,7 @@
                 <div class="label">弹窗主题</div>
                 <span class="tpl">安卓 AirPods 也能用 <span class="mini-chip accent">xxxxxx</span> 弹窗啦！</span>
                 <div class="examples">
-                  <span class="hash">萌宠</span><span class="hash">动漫</span>
+                  例：<span class="hash">萌宠</span><span class="hash">动漫</span>
                   <span class="hash">蜡笔小新</span><span class="hash">卡皮巴拉</span><span class="hash">鬼灭之刃</span>
                 </div>
               </div>
@@ -485,21 +492,21 @@
                 <div class="label">连接与电量</div>
                 <span class="tpl"><span class="mini-chip accent">xxxxxxx</span> 手机怎么连接 AirPods 看电量？一看就会</span>
                 <div class="examples">
-                  <span class="hash">红米</span><span class="hash">OPPO</span><span class="hash">华为</span>
+                  例：<span class="hash">红米</span><span class="hash">OPPO</span><span class="hash">华为</span>
                 </div>
               </div>
               <div class="idea">
                 <div class="label">功能推荐</div>
                 <span class="tpl">AndPods 有哪些 <span class="mini-chip accent">xxxxxx</span> 必开功能？</span>
                 <div class="examples">
-                  <span class="hash">查找定位</span><span class="hash">自定义弹窗</span><span class="hash">语音播报</span>
+                  例：<span class="hash">查找定位</span><span class="hash">自定义弹窗</span><span class="hash">语音播报</span>
                 </div>
               </div>
               <div class="idea">
                 <div class="label">耳机搭配</div>
                 <span class="tpl"><span class="mini-chip accent">xxxxxx</span> 耳机 + AndPods，体验直接起飞</span>
                 <div class="examples">
-                  <span class="hash">AirPods</span><span class="hash">漫步者</span><span class="hash">小米</span>
+                  例：<span class="hash">AirPods</span><span class="hash">漫步者</span><span class="hash">小米</span>
                 </div>
               </div>
             </div>
@@ -577,7 +584,7 @@
       }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.01 });
       document.querySelectorAll('main section[id]').forEach(sec=>io.observe(sec));
       // 初始状态
-      const first = document.querySelector('.nav a[href="#time"]');
+      const first = document.querySelector('.menu-panel a[href="#awards"]');
       if (first) first.classList.add('active');
 
       // 规则展开/收起
@@ -587,6 +594,15 @@
         ruleToggle.addEventListener('click', ()=>{
           const collapsed = ruleGrid.classList.toggle('collapsed');
           ruleToggle.textContent = collapsed ? '展开全部规则' : '收起部分规则';
+        });
+      }
+      // 领奖流程折叠/展开
+      const flow = document.getElementById('flow');
+      const flowToggle = document.getElementById('flowToggle');
+      if (flow && flowToggle) {
+        flowToggle.addEventListener('click', ()=>{
+          const collapsed = flow.classList.toggle('flow-collapsed');
+          flowToggle.textContent = collapsed ? '展开详情' : '收起详情';
         });
       }
     </script>
