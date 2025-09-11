@@ -93,7 +93,7 @@
                     radial-gradient(160px 160px at 70% 50%, #fff0d8, transparent 70%);
         transform: rotate(8deg);
       }
-      .hero-content { position:relative; display:grid; grid-template-columns: 1.2fr .9fr; gap: 20px; align-items:center; }
+      .hero-content { position:relative; display:grid; grid-template-columns: 1fr; gap: 20px; align-items:center; }
       .hero-left .copy-box { position: relative; background: linear-gradient(180deg, rgba(255,255,255,.985), rgba(255,255,255,.95)); backdrop-filter: blur(10px); border:1.5px solid rgba(139,76,59,.22); border-radius: 20px; padding: 18px 20px; box-shadow: 0 16px 36px rgba(139,76,59,.18), inset 0 0 0 1px rgba(255,255,255,.65), inset 0 -10px 24px rgba(139,76,59,.06); display:block; width:100%; max-width: 100%; animation: fadeUp .5s ease both; }
       .badge { color:#8c8c8c; font-weight:700; letter-spacing:.28em; font-size: 14px; }
       .title {
@@ -145,9 +145,9 @@
       /* 领奖流程 - 步骤式 */
       .steps { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
       .step { position: relative; background: #fff; border: 1px solid rgba(0,0,0,.06); border-radius: 16px; padding: 14px 12px 12px; box-shadow: var(--shadow); }
-      .step .n { width: 28px; height: 28px; border-radius: 50%; display:inline-grid; place-items:center; font-weight: 800; color: #fff; background: var(--accent); box-shadow: 0 6px 16px rgba(139,76,59,.25); margin-bottom: 8px; }
-      .step h3 { margin: 4px 0 6px; font-size: 16px; color:#3a3a3a; }
-      .step p { margin: 0; color:#555; font-size: 14px; }
+      .step .n { width: 28px; height: 28px; border-radius: 50%; display:inline-grid; place-items:center; font-weight: 800; color: #fff; background: var(--accent); box-shadow: 0 6px 16px rgba(139,76,59,.25); margin-bottom: 0; vertical-align: middle; }
+      .step h3 { display: inline-block; vertical-align: middle; margin: 0 0 0 8px; font-size: 16px; color:#3a3a3a; }
+      .step p { margin: 8px 0 0; color:#555; font-size: 14px; line-height: 1.6; }
       .choice-cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; }
       .choice { background: linear-gradient(180deg, #ffffff, #fffaf6); border:1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); }
       .choice .who { font-weight: 700; color: var(--accent); }
@@ -172,6 +172,15 @@
       .prize-list .prize-item:nth-child(2){ animation-delay: .06s; }
       .prize-list .prize-item:nth-child(3){ animation-delay: .12s; }
       .prize-list .prize-item:nth-child(4){ animation-delay: .18s; }
+
+      /* 快速步骤 */
+      .steps-lite { display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+      .steps-lite .lite { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); display:flex; gap:10px; align-items:flex-start; }
+      .steps-lite .ico { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; background:#e9f9ff; color:#0a7d90; font-weight:800; }
+
+      /* 规则折叠 */
+      .rule-toggle { margin-top: 10px; display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius: 999px; border:1px solid #aee7f3; background: linear-gradient(180deg, #e9f9ff, #d9f3fb); color:#0a6a7b; font-weight:700; cursor:pointer; }
+      .rule-grid.collapsed .more { display:none; }
 
       /* 时间胶囊 */
       .time-capsule { display:flex; gap: 12px; flex-direction: column; background: linear-gradient(120deg, #fffdf8, #fff7ea); border: 1px solid rgba(139,76,59,.12); padding: 14px; border-radius: 16px; }
@@ -241,11 +250,12 @@
           </span>
         </button>
         <div id="menu" class="menu-panel" role="menu">
-          <a href="#time" role="menuitem">时间</a>
-          <a href="#boosts" role="menuitem">次数加成</a>
-          <a href="#flow" role="menuitem">兑奖流程</a>
           <a href="#awards" role="menuitem">奖品</a>
+          <a href="#quick" role="menuitem">步骤</a>
+          <a href="#time" role="menuitem">时间</a>
+          <a href="#boosts" role="menuitem">加成</a>
           <a href="#rules" role="menuitem">规则</a>
+          <a href="#flow" role="menuitem">领奖</a>
           <a href="#join" role="menuitem">参与方式</a>
           <a href="#promo" role="menuitem">宣传</a>
         </div>
@@ -261,18 +271,49 @@
             <div class="subtitle">国庆中秋博饼积分领好礼活动</div>
           </div>
         </div>
-        <div class="hero-right">
-          <div class="prize-list">
-            <div class="prize-item green">AirPods 4 主动降噪 ×1</div>
-            <div class="prize-item white">富士果冻胶片相机 ×1</div>
-            <div class="prize-item white">瑞幸礼品卡（100）×1</div>
-            <div class="prize-item red">红包 16.6 / 5 元</div>
-          </div>
-        </div>
+        
       </div>
     </div>
 
     <main class="container">
+      <section id="awards">
+        <h2><span class="dot"></span> 奖品设置</h2>
+        <div class="awards">
+          <div class="award">
+            <div class="ribbon">NO.1</div>
+            <div class="tag">第一名</div>
+            <div class="desc">苹果 AirPods 4 主动降噪款（1129）</div>
+          </div>
+          <div class="award">
+            <div class="ribbon">NO.2</div>
+            <div class="tag">第二名</div>
+            <div class="desc">富士果冻胶片相机（249）</div>
+          </div>
+          <div class="award">
+            <div class="ribbon">NO.3</div>
+            <div class="tag">第三名</div>
+            <div class="desc">瑞幸咖啡礼品卡（面值 100）</div>
+          </div>
+          <div class="award">
+            <div class="tag">第 4-9 名</div>
+            <div class="desc">16.6 元红包奖励 / 永久会员 二选一</div>
+          </div>
+          <div class="award">
+            <div class="tag">第 10-20 名</div>
+            <div class="desc">5 元红包奖励 / 季度会员 二选一</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quick">
+        <h2><span class="dot"></span> 参与步骤（3 步到位）</h2>
+        <div class="steps-lite">
+          <div class="lite"><div class="ico">1</div><div><strong>打开 AndPods · 活动</strong><br/><span class="meta">进入活动板块开始博饼，成绩累积分。</span></div></div>
+          <div class="lite"><div class="ico">2</div><div><strong>每日参与 · 拿加成</strong><br/><span class="meta">签到/会员/节日/努力值/幸运值可加次数。</span></div></div>
+          <div class="lite"><div class="ico">3</div><div><strong>活动结束 · 领奖</strong><br/><span class="meta">联系人工客服，提交排名截图并登记。</span></div></div>
+        </div>
+      </section>
+
       <section id="time">
         <h2><span class="dot"></span> 活动时间与开奖</h2>
         <div class="time-capsule">
@@ -362,11 +403,11 @@
           </div>
           <div class="choice">
             <div class="who">4–9 名</div>
-            <div class="what">在「16.6 元红包 / AndPods 永久会员」中二选一。</div>
+            <div class="what">在 <span class="mini-chip tag">16.6 元红包</span> / <span class="mini-chip accent">AndPods 永久会员</span> 中二选一。</div>
           </div>
           <div class="choice">
             <div class="who">10–20 名</div>
-            <div class="what">在「5 元红包 / AndPods 季度会员」中二选一。</div>
+            <div class="what">在 <span class="mini-chip tag">5 元红包</span> / <span class="mini-chip accent">AndPods 季度会员</span> 中二选一。</div>
           </div>
           <div class="choice">
             <div class="who">信息说明</div>
@@ -376,51 +417,24 @@
         </div>
       </section>
 
-      <section id="awards">
-        <h2><span class="dot"></span> 奖品设置</h2>
-        <div class="awards">
-          <div class="award">
-            <div class="ribbon">NO.1</div>
-            <div class="tag">第一名</div>
-            <div class="desc">苹果 AirPods 4 主动降噪款（1129）</div>
-          </div>
-          <div class="award">
-            <div class="ribbon">NO.2</div>
-            <div class="tag">第二名</div>
-            <div class="desc">富士果冻胶片相机（249）</div>
-          </div>
-          <div class="award">
-            <div class="ribbon">NO.3</div>
-            <div class="tag">第三名</div>
-            <div class="desc">瑞幸咖啡礼品卡（面值 100）</div>
-          </div>
-          <div class="award">
-            <div class="tag">第 4-9 名</div>
-            <div class="desc">16.6 元红包奖励 / 永久会员 二选一</div>
-          </div>
-          <div class="award">
-            <div class="tag">第 10-20 名</div>
-            <div class="desc">5 元红包奖励 / 季度会员 二选一</div>
-          </div>
-        </div>
-        
-      </section>
+      
 
       <section id="rules">
         <h2><span class="dot"></span> 博饼规则</h2>
-        <div class="rule-grid">
+        <div class="rule-grid collapsed" id="ruleGrid">
           <div class="rule-card"><div class="name">六抔红</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span></div></div>
           <div class="rule-card"><div class="name">插金花</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die gold">1</span><span class="die gold">1</span></div></div>
           <div class="rule-card"><div class="name">六抔黑</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span></div></div>
-          <div class="rule-card"><div class="name">五 红</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span></div></div>
+          <div class="rule-card more"><div class="name">五 红</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span></div></div>
           <div class="rule-card"><div class="name">五子登科</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">1</span></div></div>
-          <div class="rule-card"><div class="name">四点红</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +1</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span></div></div>
-          <div class="rule-card"><div class="name">对 堂</div><div class="point-badge">积分 +5</div><div class="dice"><span class="die gold">1</span><span class="die">2</span><span class="die">3</span><span class="die red">4</span><span class="die">5</span><span class="die">6</span></div></div>
-          <div class="rule-card"><div class="name">三 红</div><div class="point-badge">积分 +4</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span><span class="die">6</span></div></div>
-          <div class="rule-card"><div class="name">四 进</div><div class="point-badge">积分 +3</div><div class="dice"><span class="die">3</span><span class="die">3</span><span class="die">3</span><span class="die">3</span><span class="die">1</span><span class="die">6</span></div></div>
-          <div class="rule-card"><div class="name">二 举</div><div class="point-badge">积分 +2</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">3</span><span class="die">5</span><span class="die">6</span></div></div>
-          <div class="rule-card"><div class="name">一 秀</div><div class="point-badge">积分 +1</div><div class="dice"><span class="die red">4</span><span class="die">1</span><span class="die">2</span><span class="die">3</span><span class="die">5</span><span class="die">6</span></div></div>
+          <div class="rule-card more"><div class="name">四点红</div><div class="point-badge">积分 +6</div><div class="badge">抽奖 +1</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span></div></div>
+          <div class="rule-card more"><div class="name">对 堂</div><div class="point-badge">积分 +5</div><div class="dice"><span class="die gold">1</span><span class="die">2</span><span class="die">3</span><span class="die red">4</span><span class="die">5</span><span class="die">6</span></div></div>
+          <div class="rule-card more"><div class="name">三 红</div><div class="point-badge">积分 +4</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span><span class="die">6</span></div></div>
+          <div class="rule-card more"><div class="name">四 进</div><div class="point-badge">积分 +3</div><div class="dice"><span class="die">3</span><span class="die">3</span><span class="die">3</span><span class="die">3</span><span class="die">1</span><span class="die">6</span></div></div>
+          <div class="rule-card more"><div class="name">二 举</div><div class="point-badge">积分 +2</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">3</span><span class="die">5</span><span class="die">6</span></div></div>
+          <div class="rule-card more"><div class="name">一 秀</div><div class="point-badge">积分 +1</div><div class="dice"><span class="die red">4</span><span class="die">1</span><span class="die">2</span><span class="die">3</span><span class="die">5</span><span class="die">6</span></div></div>
         </div>
+        <button class="rule-toggle" id="ruleToggle">展开全部规则</button>
       </section>
 
       <section id="join">
@@ -481,6 +495,16 @@
       // 初始状态
       const first = document.querySelector('.nav a[href="#time"]');
       if (first) first.classList.add('active');
+
+      // 规则展开/收起
+      const ruleGrid = document.getElementById('ruleGrid');
+      const ruleToggle = document.getElementById('ruleToggle');
+      if (ruleGrid && ruleToggle) {
+        ruleToggle.addEventListener('click', ()=>{
+          const collapsed = ruleGrid.classList.toggle('collapsed');
+          ruleToggle.textContent = collapsed ? '展开全部规则' : '收起部分规则';
+        });
+      }
     </script>
   </body>
 </html>
