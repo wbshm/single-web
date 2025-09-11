@@ -219,6 +219,19 @@
       .list-check li::before { content: "✓"; position:absolute; left:0; top:0; color:#2aa6a5; font-weight: 800; }
       .list-badge { list-style: none; padding-left: 0; }
       .list-badge li { display:flex; align-items:center; gap:8px; margin: 6px 0; }
+      /* 宣传与素材 */
+      .promo-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+      .promo-card { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius: 14px; padding: 12px; box-shadow: var(--shadow); }
+      .promo-card h3 { margin: 0 0 8px; font-size: 16px; color:#3a3a3a; }
+      .hashtag-cloud { display:flex; flex-wrap: wrap; gap: 8px; }
+      .hash { display:inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; color:#0b6b78; background:#e9f9ff; border:1px dashed #aee7f3; }
+      .note-list { margin: 6px 0 0 0; padding-left: 0; list-style-position: inside; color:#555; }
+      .tpl { display:block; margin-top:6px; padding:8px 10px; border-radius:10px; background:#f7fbff; border:1px dashed #bfeaf6; color:#0b6b78; }
+      .title-ideas { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:10px; margin-top:6px; }
+      .title-ideas .idea { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:10px; padding:10px; box-shadow: var(--shadow); }
+      .idea .label { font-weight:700; color:#3a3a3a; }
+      .idea .examples { margin-top:6px; display:flex; flex-wrap:wrap; gap:6px; }
+      .warn { background:#fff5f5; color:#a23a3a; border-color:#ffc9c9; }
       @media (max-width: 860px) { .hero-content { grid-template-columns: 1fr; } .hero-right { justify-self: stretch; } }
       @media (max-width: 720px) {
         .rules { columns: 1; }
@@ -334,7 +347,7 @@
       </section>
 
       <section id="boosts">
-        <h2><span class="dot"></span> 次数加成</h2>
+        <h2><span class="dot"></span> 获取博饼次数</h2>
         <div class="stat-cards">
           <div class="stat-card">
             <div class="num-badge">+5</div>
@@ -446,7 +459,74 @@
 
       <section id="promo">
         <h2><span class="dot"></span> 宣传与素材</h2>
-        <p>我们将提供图文或视频素材，方便大家一键发布参与传播，敬请关注 AndPods 应用内活动板块。</p>
+        <div class="promo-grid">
+          <div class="promo-card">
+            <h3>投稿参考</h3>
+            <ul class="list-check" style="margin-top:6px;">
+              <li>图文：重点在第一张</li>
+              <li>视频：封面是点击的秘诀</li>
+            </ul>
+          </div>
+          <div class="promo-card">
+            <h3>关键词标题模板（更容易被搜到）</h3>
+            <div class="meta">公式：<span class="mini-chip tag">人群/设备</span> + <span class="mini-chip tag">场景</span> + <span class="mini-chip tag">核心关键词</span> + <span class="mini-chip tag">结果/承诺</span></div>
+            <div class="title-ideas">
+              <div class="idea">
+                <div class="label">弹窗主题</div>
+                <span class="tpl">安卓 AirPods 也能用 <span class="mini-chip accent">xxxxxx</span> 弹窗啦！</span>
+                <div class="examples">
+                  <span class="hash">萌宠</span><span class="hash">动漫</span>
+                  <span class="hash">蜡笔小新</span><span class="hash">卡皮巴拉</span><span class="hash">鬼灭之刃</span>
+                </div>
+              </div>
+              <div class="idea">
+                <div class="label">连接与电量</div>
+                <span class="tpl"><span class="mini-chip accent">xxxxxxx</span> 手机怎么连接 AirPods 看电量？一看就会</span>
+                <div class="examples">
+                  <span class="hash">红米</span><span class="hash">OPPO</span><span class="hash">华为</span>
+                </div>
+              </div>
+              <div class="idea">
+                <div class="label">功能推荐</div>
+                <span class="tpl">AndPods 有哪些 <span class="mini-chip accent">xxxxxx</span> 必开功能？</span>
+                <div class="examples">
+                  <span class="hash">查找定位</span><span class="hash">自定义弹窗</span><span class="hash">语音播报</span>
+                </div>
+              </div>
+              <div class="idea">
+                <div class="label">耳机搭配</div>
+                <span class="tpl"><span class="mini-chip accent">xxxxxx</span> 耳机 + AndPods，体验直接起飞</span>
+                <div class="examples">
+                  <span class="hash">AirPods</span><span class="hash">漫步者</span><span class="hash">小米</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="promo-card">
+            <h3>热门标题 · 话题标签</h3>
+            <div class="hashtag-cloud" style="margin-top:4px;">
+              <span class="hash">#AndPods</span>
+              <span class="hash">#AirPods</span>
+              <span class="hash">#耳机弹窗</span>
+              <span class="hash">#APP分享</span>
+              <span class="hash">#数码大玩家</span>
+              <span class="hash">#华强北耳机</span>
+              <span class="hash">#苹果耳机</span>
+              <span class="hash">#一人一个安卓使用技巧</span>
+              <span class="hash">#数码好视频</span>
+              <span class="hash">#不懂就问有问必答</span>
+              <span class="hash">#教程</span>
+            </div>
+          </div>
+          <div class="promo-card">
+            <h3>注意事项</h3>
+            <ul class="note-list">
+              <li><span class="mini-chip accent">保存时长</span>：笔记至少保留 <strong>1 周</strong>（含封面/标题/正文）。</li>
+              <li><span class="mini-chip accent">原创发布</span>：严禁删除、隐藏、<span class="mini-chip warn">抄袭/搬运</span>；一经核实，<strong>取消奖励</strong>。</li>
+              <li><span class="mini-chip accent">发布时间</span>：禁止对 <strong>既有笔记二次编辑</strong> 充当新稿，会核对发布时间。</li>
+            </ul>
+          </div>
+        </div>
       </section>
 
       <footer>
@@ -488,7 +568,7 @@
           const link = links.find(l => l.getAttribute('href') === id);
           if (!link) return;
           if (en.isIntersecting) {
-            links.forEach(l=>l.classList.remove('active'));
+            links.forEach(l=>l.classList.remove('active')); 
             link.classList.add('active');
           }
         });
