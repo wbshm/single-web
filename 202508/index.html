@@ -252,7 +252,7 @@
 
       /* 微交互 */
       .anchor { color: var(--brand); text-decoration: none; font-weight: 600; }
-      .anchor:hover { text-decoration: underline; }
+      .anchor:hover { text-decoration: none; }
     </style>
   </head>
   <body>
@@ -312,7 +312,7 @@
           <div class="award">
             <div class="ribbon">NO.3</div>
             <div class="tag">第三名</div>
-            <div class="desc">瑞幸咖啡礼品卡</div>
+            <div class="desc">瑞幸咖啡礼品卡（面值100）</div>
           </div>
           <div class="award">
             <div class="tag">第 4-9 名</div>
@@ -383,7 +383,7 @@
             </div>
             <p>用你的方式为 AndPods 做宣传。</p>
             <p>关注 <span class="mini-chip tag">@AndPods-弹窗菌</span> 并带上 <span class="mini-chip tag">#AndPods</span> 标签；发布后可私信领取兑换码。</p>
-            <p class="meta">APP 内有参与小妙招可参考。</p>
+            <p class="meta">下滑有笔记发布<a class="anchor mini-chip tag" href="#promo">小妙招</a>可参考</p>
             <ul class="list-check">
               <li>图文≥3张，视频不限时长；不得盗用或二次编辑旧笔记。</li>
               <li>抖音/小红书/快手：每天发布后可私信领取 1 个兑换码。</li>
@@ -396,9 +396,9 @@
               <span class="mini-chip">次数加成</span>
             </div>
             <ul class="list-badge">
-              <li><span class="mini-chip strong">+3</span> 六抔红、插金花、六抔黑</li>
-              <li><span class="mini-chip strong">+2</span> 五红、五子登科</li>
-              <li><span class="mini-chip strong">+1</span> 四点红</li>
+              <li><span class="mini-chip strong">抽奖 +3</span> 六抔红、插金花、六抔黑</li>
+              <li><span class="mini-chip strong">抽奖 +2</span> 五红、五子登科</li>
+              <li><span class="mini-chip strong">抽奖 +1</span> 四点红</li>
             </ul>
           </div>
         </div>
@@ -409,12 +409,12 @@
       <section id="rules">
         <h2><span class="dot"></span> 博饼规则</h2>
         <div class="rule-grid collapsed" id="ruleGrid">
-          <div class="rule-card"><div class="name">六抔红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span></div></div>
-          <div class="rule-card"><div class="name">插金花</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die gold">1</span><span class="die gold">1</span></div></div>
-          <div class="rule-card"><div class="name">六抔黑</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span></div></div>
-          <div class="rule-card more"><div class="name">五 红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span></div></div>
-          <div class="rule-card"><div class="name">五子登科</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">1</span></div></div>
-          <div class="rule-card more"><div class="name">四点红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +1</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span></div></div>
+          <div class="rule-card"><div class="name">状元：六抔红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span></div></div>
+          <div class="rule-card"><div class="name">状元：插金花</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die gold">1</span><span class="die gold">1</span></div></div>
+          <div class="rule-card"><div class="name">状元：六抔黑</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span></div></div>
+          <div class="rule-card more"><div class="name">状元：五 红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span></div></div>
+          <div class="rule-card"><div class="name">状元：五子登科</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +2</div><div class="dice"><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">6</span><span class="die">1</span></div></div>
+          <div class="rule-card more"><div class="name">状元：四点红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +1</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span></div></div>
           <div class="rule-card more"><div class="name">对 堂</div><div class="point-badge">积分 +50</div><div class="dice"><span class="die gold">1</span><span class="die">2</span><span class="die">3</span><span class="die red">4</span><span class="die">5</span><span class="die">6</span></div></div>
           <div class="rule-card more"><div class="name">三 红</div><div class="point-badge">积分 +40</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">5</span><span class="die">6</span></div></div>
           <div class="rule-card more"><div class="name">四 进</div><div class="point-badge">积分 +30</div><div class="dice"><span class="die">3</span><span class="die">3</span><span class="die">3</span><span class="die">3</span><span class="die">1</span><span class="die">6</span></div></div>
@@ -531,7 +531,7 @@
             <h3>注意事项</h3>
             <ul class="note-list">
               <li><span class="mini-chip accent">保存时长</span>：笔记至少保留 <strong>1 周</strong>（含封面/标题/正文）。</li>
-              <li><span class="mini-chip accent">原创发布</span>：严禁删除、隐藏、<span class="mini-chip warn">抄袭/搬运</span>；一经核实，<strong>取消奖励</strong>。</li>
+              <li><span class="mini-chip accent">原创发布</span>：删除、隐藏、<span class="mini-chip warn">抄袭/搬运</span>；一经核实，<strong>取消奖励</strong>。</li>
               <li><span class="mini-chip accent">发布时间</span>：禁止对 <strong>既有笔记二次编辑</strong> 充当新稿，会核对发布时间。</li>
             </ul>
           </div>
