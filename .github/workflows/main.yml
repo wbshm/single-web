@@ -1,13 +1,13 @@
 name: Upload to COS
 on:
   push:
-    branches: [ main ]  # 仅在推送到main分支时触发，可根据需要修改
+    branches: [ main ]  # 仅在推送到main分支时触发
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4  # 使用最新版本的checkout动作
+      - uses: actions/checkout@v4  # 拉取仓库代码
       
       - name: Install coscmd
         run: sudo pip install coscmd
@@ -20,5 +20,7 @@ jobs:
           REGION: ap-shanghai
         run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
       
-      - name: Upload to COS
-        run: coscmd upload -rs --delete -f ./ / --ignore "./.git/*" --ignore "./.github/*"
+      - name: Upload to COS /singleweb/ directory
+        # 核心修改：将本地根目录内容上传到存储桶的/singleweb/目录
+        run: coscmd upload -rs --delete -f ./ /singleweb/ --ignore "./.git/*" --ignore "./.github/*"
+    
