@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>AndPods 活动 · 博饼领好礼</title>
+    <meta name="theme-color" content="#f4eadf" />
+    <style>
+      :root {
+        --bg: #f4eadf;
+        --panel: #fff8ee;
+        --accent: #8b4c3b;
+        --brand: #2aa6a5;
+        --shadow: 0 12px 30px rgba(0,0,0,.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; color: #2e2e2e; background:
+        radial-gradient(1100px 400px at 90% -10%, #e8fff7 0%, transparent 60%),
+        radial-gradient(800px 500px at -10% 20%, #e7f3ff 0%, transparent 55%),
+        linear-gradient(0deg, var(--bg), var(--bg)); }
+      .wrap { min-height: 100%; display: grid; place-items: center; padding: 24px; }
+      .card {
+        width: min(760px, 100%);
+        background: linear-gradient(180deg, #fff, #fffaf4);
+        border: 1px solid rgba(0,0,0,.06);
+        border-radius: 20px;
+        box-shadow: var(--shadow);
+        padding: 28px 22px;
+        text-align: center;
+      }
+      .brand { color: var(--accent); font-weight: 800; letter-spacing: .03em; }
+      h1 { margin: 8px 0 4px; font-size: clamp(24px, 5.6vw, 40px); color: #5b2a1e; }
+      p { margin: 0; color: #666; }
+      .cta { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 999px; color: #084d57; background: linear-gradient(180deg, #e9f9ff, #d9f3fb); border: 1px solid #aee7f3; box-shadow: 0 8px 20px rgba(10,161,193,.18); text-decoration: none; font-weight: 700; }
+      .cta:focus { outline: 3px solid #aee7f3; outline-offset: 3px; }
+      .cta:hover { filter: brightness(1.02); }
+      .hint { margin-top: 10px; font-size: 12px; color: #8a8a8a; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="card">
+        <div class="brand">AndPods 活动</div>
+        <h1>博饼 领好礼</h1>
+        <p>前往本期国庆·中秋活动页</p>
+        <p class="hint">若未自动跳转，请点击下方按钮</p>
+        <p>
+          <a class="cta" href="202508/index.html" rel="noopener">进入活动页 →</a>
+        </p>
+      </div>
+    </main>
+    <script>
+      // 2秒后自动跳转，确保可见可点击的备用入口
+      setTimeout(()=>{ window.location.href = '202508/index.html'; }, 2000);
+    </script>
+  </body>
+  </html>
+
