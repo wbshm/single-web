@@ -1,26 +1,26 @@
 name: Upload to COS
 on:
   push:
-    branches: [ main ]  # 仅在推送到main分支时触发
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: 腾讯云  # 指定使用“腾讯云”这个环境的 Secrets
     steps:
-      - uses: actions/checkout@v4  # 拉取仓库代码
+      - uses: actions/checkout@v4
       
       - name: Install coscmd
         run: sudo pip install coscmd
       
       - name: Configure coscmd
         env:
-          SECRET_ID: ${{ secrets.SecretId }}
-          SECRET_KEY: ${{ secrets.SecretKey }}
+          # 注意：这里要和环境 Secrets 的名称一致（全大写）
+          SECRET_ID: ${{ secrets.SECRETID }}
+          SECRET_KEY: ${{ secrets.SECRETKEY }}
           BUCKET: andpods-1302035409
           REGION: ap-shanghai
-        run: coscmd config -a $SECRET_ID -s $SECRET_KEY -b $BUCKET -r $REGION
+        run: coscmd config -a ${SECRET_ID} -s ${SECRET_KEY} -b ${BUCKET} -r ${REGION}
       
       - name: Upload to COS /singleweb/ directory
-        # 核心修改：将本地根目录内容上传到存储桶的/singleweb/目录
         run: coscmd upload -rs --delete -f ./ /singleweb/ --ignore "./.git/*" --ignore "./.github/*"
-    
