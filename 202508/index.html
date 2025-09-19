@@ -188,6 +188,16 @@
       #promo.promo-collapsed .promo-grid .promo-card.more { display:none; }
       .promo-summary { display:flex; align-items:center; gap:8px; flex-wrap: wrap; padding: 10px 12px; border:1px dashed #aee7f3; background:#f6fbff; color:#0a6a7b; border-radius: 12px; }
 
+      /* 获取博饼次数折叠 */
+      .boosts-toggle { margin-top: 10px; display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius: 999px; border:1px solid #aee7f3; background: linear-gradient(180deg, #e9f9ff, #d9f3fb); color:#0a6a7b; font-weight:700; cursor:pointer; }
+      #boosts.boosts-collapsed .stat-cards .stat-card.more { display:none; }
+      .boosts-summary { display:flex; align-items:center; gap:8px; flex-wrap: wrap; padding: 10px 12px; border:1px dashed #aee7f3; background:#f6fbff; color:#0a6a7b; border-radius: 12px; margin-bottom: 10px; }
+      
+      /* 折叠状态下的间距优化 */
+      #boosts.boosts-collapsed .stat-cards { margin-top: 0; }
+      #promo.promo-collapsed .promo-grid { margin-top: 0; }
+      #flow.flow-collapsed .steps { margin-top: 0; }
+
       /* 时间胶囊 */
       .time-capsule { display:flex; gap: 12px; flex-direction: column; background: linear-gradient(120deg, #fffdf8, #fff7ea); border: 1px solid rgba(139,76,59,.12); padding: 14px; border-radius: 16px; }
       .time-row { display:flex; align-items:center; gap:10px; flex-wrap: wrap; }
@@ -360,30 +370,106 @@
         <p>点击 AndPods 应用活动板块开启博饼积分制比赛。每位用户每日都有博饼机会，会根据每次博饼的结果累积积分；活动结束后联系人工客服，根据积分排名发放奖品。</p>
       </section> -->
 
-      <section id="boosts">
+
+      <section id="promo">
+        <h2><span class="dot"></span> 投稿参考</h2>
+        <div class="promo-grid">
+          <div class="promo-card">
+            <h3>小技巧</h3>
+            <ul class="list-check" style="margin-top:6px;">
+              <li>图文：重点在第一张</li>
+              <li>视频：封面是点击的秘诀</li>
+            </ul>
+          </div>
+          <div class="promo-card">
+            <h3>关键词标题模板（更容易被搜到）</h3>
+            <div class="meta">公式：<span class="mini-chip tag">人群/设备</span> + <span class="mini-chip tag">场景</span> + <span class="mini-chip tag">核心关键词</span> + <span class="mini-chip tag">结果/承诺</span></div>
+            <div class="title-ideas">
+              <div class="idea">
+                <div class="label">弹窗主题</div>
+                <span class="tpl">安卓 AirPods 也能用 <span class="mini-chip accent">xxxxxx</span> 弹窗啦！</span>
+                <div class="examples">
+                  例：<span class="hash">萌宠</span><span class="hash">动漫</span>
+                  <span class="hash">蜡笔小新</span><span class="hash">卡皮巴拉</span><span class="hash">鬼灭之刃</span>
+                </div>
+              </div>
+              <div class="idea">
+                <div class="label">连接与电量</div>
+                <span class="tpl"><span class="mini-chip accent">xxxxxxx</span> 手机怎么连接 AirPods 看电量？一看就会</span>
+                <div class="examples">
+                  例：<span class="hash">红米</span><span class="hash">OPPO</span><span class="hash">华为</span>
+                </div>
+              </div>
+              <div class="idea">
+                <div class="label">功能推荐</div>
+                <span class="tpl">AndPods 有哪些 <span class="mini-chip accent">xxxxxx</span> 必开功能？</span>
+                <div class="examples">
+                  例：<span class="hash">查找定位</span><span class="hash">自定义弹窗</span><span class="hash">语音播报</span>
+                </div>
+              </div>
+              <div class="idea">
+                <div class="label">耳机搭配</div>
+                <span class="tpl"><span class="mini-chip accent">xxxxxx</span> 耳机 + AndPods，体验直接起飞</span>
+                <div class="examples">
+                  例：<span class="hash">AirPods</span><span class="hash">漫步者</span><span class="hash">小米</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="promo-card">
+            <h3>热门标题 · 话题标签</h3>
+            <div class="hashtag-cloud" style="margin-top:4px;">
+              <span class="hash">#AndPods</span>
+              <span class="hash">#AirPods</span>
+              <span class="hash">#耳机弹窗</span>
+              <span class="hash">#APP分享</span>
+              <span class="hash">#数码大玩家</span>
+              <span class="hash">#华强北耳机</span>
+              <span class="hash">#苹果耳机</span>
+              <span class="hash">#一人一个安卓使用技巧</span>
+              <span class="hash">#数码好视频</span>
+              <span class="hash">#不懂就问有问必答</span>
+              <span class="hash">#教程</span>
+            </div>
+          </div>
+          <div class="promo-card">
+            <h3>注意事项</h3>
+            <ul class="note-list">
+              <li><span class="mini-chip accent">保存时长</span>：笔记至少保留 <strong>1 周</strong>（含封面/标题/正文）。</li>
+              <li><span class="mini-chip accent">原创发布</span>：删除、隐藏、<span class="mini-chip warn">抄袭/搬运</span>；一经核实，<strong>取消奖励</strong>。</li>
+              <li><span class="mini-chip accent">发布时间</span>：禁止对 <strong>既有笔记二次编辑</strong> 充当新稿，会核对发布时间。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+
+      <section id="boosts" class="boosts-collapsed">
         <h2><span class="dot"></span> 获取博饼次数</h2>
+        <div class="boosts-summary ">每日签到 +5 · 会员 +2 · 国庆 +2 · 中秋 +5 · 努力值/幸运值</div>
+        <button class="boosts-toggle" type="button" id="boostsToggle">展开详情</button>
         <div class="stat-cards">
-          <div class="stat-card">
+          <div class="stat-card more">
             <div class="num-badge">+5</div>
             <div class="head">✅ 每日登录签到</div>
             <p>每日登录 APP，获得 5 次博饼机会。</p>
           </div>
-          <div class="stat-card">
+          <div class="stat-card more">
             <div class="num-badge">+2</div>
             <div class="head">🌟 会员每日</div>
             <p>会员每日额外获得 2 次博饼机会。</p>
           </div>
-          <div class="stat-card">
+          <div class="stat-card more">
             <div class="num-badge">+2</div>
             <div class="head">🇨🇳 10/1 国庆</div>
             <p>国庆当天额外获得 2 次博饼机会。</p>
           </div>
-          <div class="stat-card">
+          <div class="stat-card more">
             <div class="num-badge">+5</div>
             <div class="head">🌕 10/6 中秋</div>
             <p>中秋当天额外获得 5 次博饼机会。</p>
           </div>
-          <div class="stat-card energy">
+          <div class="stat-card energy more">
             <div class="head">
               <div class="title-wrap"><span class="ico">💪</span> 努力值</div>
               <span class="mini-chip">可领兑换码</span>
@@ -397,7 +483,7 @@
               <li>笔记每满 100 赞可再领取 1 个兑换码。</li>
             </ul>
           </div>
-          <div class="stat-card luck">
+          <div class="stat-card luck more">
             <div class="head">
               <div class="title-wrap"><span class="ico">🍀</span> 幸运值</div>
               <span class="mini-chip">次数加成</span>
@@ -411,9 +497,7 @@
         </div>
       </section>
 
-      
-
-      <section id="rules">
+      <section id="rules" style="display: none;">
         <h2><span class="dot"></span> 博饼规则</h2>
         <button class="rule-toggle" id="ruleToggle">展开规则</button>
         <div class="rule-grid collapsed" id="ruleGrid">
@@ -473,79 +557,6 @@
         </div>
       </section>
 
-      <section id="promo" class="promo-collapsed">
-        <h2><span class="dot"></span> 投稿参考</h2>
-        <div class="promo-summary">图片视频 · 关键词模板 · 热门标签 · 注意事项</div>
-        <button class="promo-toggle" type="button" id="promoToggle">展开详情</button>
-        <div class="promo-grid">
-          <div class="promo-card">
-            <h3>图片与视频</h3>
-            <ul class="list-check" style="margin-top:6px;">
-              <li>图文：重点在第一张</li>
-              <li>视频：封面是点击的秘诀</li>
-            </ul>
-          </div>
-          <div class="promo-card more">
-            <h3>关键词标题模板（更容易被搜到）</h3>
-            <div class="meta">公式：<span class="mini-chip tag">人群/设备</span> + <span class="mini-chip tag">场景</span> + <span class="mini-chip tag">核心关键词</span> + <span class="mini-chip tag">结果/承诺</span></div>
-            <div class="title-ideas">
-              <div class="idea">
-                <div class="label">弹窗主题</div>
-                <span class="tpl">安卓 AirPods 也能用 <span class="mini-chip accent">xxxxxx</span> 弹窗啦！</span>
-                <div class="examples">
-                  例：<span class="hash">萌宠</span><span class="hash">动漫</span>
-                  <span class="hash">蜡笔小新</span><span class="hash">卡皮巴拉</span><span class="hash">鬼灭之刃</span>
-                </div>
-              </div>
-              <div class="idea">
-                <div class="label">连接与电量</div>
-                <span class="tpl"><span class="mini-chip accent">xxxxxxx</span> 手机怎么连接 AirPods 看电量？一看就会</span>
-                <div class="examples">
-                  例：<span class="hash">红米</span><span class="hash">OPPO</span><span class="hash">华为</span>
-                </div>
-              </div>
-              <div class="idea">
-                <div class="label">功能推荐</div>
-                <span class="tpl">AndPods 有哪些 <span class="mini-chip accent">xxxxxx</span> 必开功能？</span>
-                <div class="examples">
-                  例：<span class="hash">查找定位</span><span class="hash">自定义弹窗</span><span class="hash">语音播报</span>
-                </div>
-              </div>
-              <div class="idea">
-                <div class="label">耳机搭配</div>
-                <span class="tpl"><span class="mini-chip accent">xxxxxx</span> 耳机 + AndPods，体验直接起飞</span>
-                <div class="examples">
-                  例：<span class="hash">AirPods</span><span class="hash">漫步者</span><span class="hash">小米</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="promo-card more">
-            <h3>热门标题 · 话题标签</h3>
-            <div class="hashtag-cloud" style="margin-top:4px;">
-              <span class="hash">#AndPods</span>
-              <span class="hash">#AirPods</span>
-              <span class="hash">#耳机弹窗</span>
-              <span class="hash">#APP分享</span>
-              <span class="hash">#数码大玩家</span>
-              <span class="hash">#华强北耳机</span>
-              <span class="hash">#苹果耳机</span>
-              <span class="hash">#一人一个安卓使用技巧</span>
-              <span class="hash">#数码好视频</span>
-              <span class="hash">#不懂就问有问必答</span>
-              <span class="hash">#教程</span>
-            </div>
-          </div>
-          <div class="promo-card more">
-            <h3>注意事项</h3>
-            <ul class="note-list">
-              <li><span class="mini-chip accent">保存时长</span>：笔记至少保留 <strong>1 周</strong>（含封面/标题/正文）。</li>
-              <li><span class="mini-chip accent">原创发布</span>：删除、隐藏、<span class="mini-chip warn">抄袭/搬运</span>；一经核实，<strong>取消奖励</strong>。</li>
-              <li><span class="mini-chip accent">发布时间</span>：禁止对 <strong>既有笔记二次编辑</strong> 充当新稿，会核对发布时间。</li>
-            </ul>
-          </div>
-        </div>
-      </section>
 
       <footer>
         ps：本次博饼活动的最终解释权归 AndPods 所有
@@ -614,13 +625,13 @@
           flowToggle.textContent = collapsed ? '展开详情' : '收起详情';
         });
       }
-      // 投稿参考折叠/展开
-      const promo = document.getElementById('promo');
-      const promoToggle = document.getElementById('promoToggle');
-      if (promo && promoToggle) {
-        promoToggle.addEventListener('click', ()=>{
-          const collapsed = promo.classList.toggle('promo-collapsed');
-          promoToggle.textContent = collapsed ? '展开详情' : '收起详情';
+      // 获取博饼次数折叠/展开
+      const boosts = document.getElementById('boosts');
+      const boostsToggle = document.getElementById('boostsToggle');
+      if (boosts && boostsToggle) {
+        boostsToggle.addEventListener('click', ()=>{
+          const collapsed = boosts.classList.toggle('boosts-collapsed');
+          boostsToggle.textContent = collapsed ? '展开详情' : '收起详情';
         });
       }
     </script>
