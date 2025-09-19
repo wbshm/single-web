@@ -183,6 +183,11 @@
       .rule-toggle { margin-top: 10px; display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius: 999px; border:1px solid #aee7f3; background: linear-gradient(180deg, #e9f9ff, #d9f3fb); color:#0a6a7b; font-weight:700; cursor:pointer; }
       .rule-grid.collapsed .more { display:none; }
 
+      /* 投稿参考折叠 */
+      .promo-toggle { margin-top: 10px; display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius: 999px; border:1px solid #aee7f3; background: linear-gradient(180deg, #e9f9ff, #d9f3fb); color:#0a6a7b; font-weight:700; cursor:pointer; }
+      #promo.promo-collapsed .promo-grid .promo-card.more { display:none; }
+      .promo-summary { display:flex; align-items:center; gap:8px; flex-wrap: wrap; padding: 10px 12px; border:1px dashed #aee7f3; background:#f6fbff; color:#0a6a7b; border-radius: 12px; }
+
       /* 时间胶囊 */
       .time-capsule { display:flex; gap: 12px; flex-direction: column; background: linear-gradient(120deg, #fffdf8, #fff7ea); border: 1px solid rgba(139,76,59,.12); padding: 14px; border-radius: 16px; }
       .time-row { display:flex; align-items:center; gap:10px; flex-wrap: wrap; }
@@ -270,13 +275,13 @@
           </span>
         </button>
         <div id="menu" class="menu-panel" role="menu">
+          <a href="#time" role="menuitem">时间</a>
           <a href="#awards" role="menuitem">奖品</a>
           <a href="#quick" role="menuitem">步骤</a>
-          <a href="#time" role="menuitem">时间</a>
           <a href="#boosts" role="menuitem">加成</a>
           <a href="#flow" role="menuitem">领奖</a>
           <a href="#rules" role="menuitem">规则</a>
-          <a href="#join" role="menuitem">参与方式</a>
+          <!-- <a href="#join" role="menuitem">参与方式</a> -->
           <a href="#promo" role="menuitem">宣传</a>
         </div>
       </div>
@@ -296,6 +301,30 @@
     </div>
 
     <main class="container">
+
+      <section id="time">
+        <h2><span class="dot"></span> 活动时间与开奖</h2>
+        <div class="time-capsule">
+          <div class="time-row">
+            <div class="date-chip">🟢 <span class="k">开始</span> <span class="mono">09.25 周四 12:00</span></div>
+            <span class="arrow">→</span>
+            <div class="date-chip">🔴 <span class="k">结束</span> <span class="mono">10.14 周二 16:00</span></div>
+          </div>
+          <div class="time-row">
+            <div class="date-chip">🎉 <span class="k">开奖</span> <span class="mono">10.15 周三</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="quick">
+        <h2><span class="dot"></span> 参与步骤（3 步到位）</h2>
+        <div class="steps-lite">
+          <div class="lite"><div class="ico">1</div><div><strong>打开 AndPods · 活动</strong><br/><span class="meta">进入活动板块开始博饼，成绩累积分。</span></div></div>
+          <div class="lite"><div class="ico">2</div><div><strong>每日参与 · 拿加成</strong><br/><span class="meta">签到/会员/节日/努力值/幸运值可加次数。</span></div></div>
+          <div class="lite"><div class="ico">3</div><div><strong>活动结束 · 领奖</strong><br/><span class="meta">联系人工客服，提交排名截图并登记。</span></div></div>
+        </div>
+      </section>
+
       <section id="awards">
         <h2><span class="dot"></span> 奖品设置</h2>
         <div class="awards">
@@ -325,33 +354,11 @@
         </div>
       </section>
 
-      <section id="quick">
-        <h2><span class="dot"></span> 参与步骤（3 步到位）</h2>
-        <div class="steps-lite">
-          <div class="lite"><div class="ico">1</div><div><strong>打开 AndPods · 活动</strong><br/><span class="meta">进入活动板块开始博饼，成绩累积分。</span></div></div>
-          <div class="lite"><div class="ico">2</div><div><strong>每日参与 · 拿加成</strong><br/><span class="meta">签到/会员/节日/努力值/幸运值可加次数。</span></div></div>
-          <div class="lite"><div class="ico">3</div><div><strong>活动结束 · 领奖</strong><br/><span class="meta">联系人工客服，提交排名截图并登记。</span></div></div>
-        </div>
-      </section>
 
-      <section id="time">
-        <h2><span class="dot"></span> 活动时间与开奖</h2>
-        <div class="time-capsule">
-          <div class="time-row">
-            <div class="date-chip">🟢 <span class="k">开始</span> <span class="mono">09.25 周四 12:00</span></div>
-            <span class="arrow">→</span>
-            <div class="date-chip">🔴 <span class="k">结束</span> <span class="mono">10.14 周二 16:00</span></div>
-          </div>
-          <div class="time-row">
-            <div class="date-chip">🎉 <span class="k">开奖</span> <span class="mono">10.15 周三</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section id="join">
+      <!-- <section id="join">
         <h2><span class="dot"></span> 参与方式</h2>
         <p>点击 AndPods 应用活动板块开启博饼积分制比赛。每位用户每日都有博饼机会，会根据每次博饼的结果累积积分；活动结束后联系人工客服，根据积分排名发放奖品。</p>
-      </section>
+      </section> -->
 
       <section id="boosts">
         <h2><span class="dot"></span> 获取博饼次数</h2>
@@ -408,6 +415,7 @@
 
       <section id="rules">
         <h2><span class="dot"></span> 博饼规则</h2>
+        <button class="rule-toggle" id="ruleToggle">展开规则</button>
         <div class="rule-grid collapsed" id="ruleGrid">
           <div class="rule-card more"><div class="name">状元：六抔红</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span></div></div>
           <div class="rule-card more"><div class="name">状元：插金花</div><div class="point-badge">积分 +60</div><div class="badge">抽奖 +3</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die red">4</span><span class="die gold">1</span><span class="die gold">1</span></div></div>
@@ -421,7 +429,6 @@
           <div class="rule-card more"><div class="name">二 举</div><div class="point-badge">积分 +20</div><div class="dice"><span class="die red">4</span><span class="die red">4</span><span class="die">2</span><span class="die">3</span><span class="die">5</span><span class="die">6</span></div></div>
           <div class="rule-card more"><div class="name">一 秀</div><div class="point-badge">积分 +10</div><div class="dice"><span class="die red">4</span><span class="die">1</span><span class="die">2</span><span class="die">3</span><span class="die">5</span><span class="die">6</span></div></div>
         </div>
-        <button class="rule-toggle" id="ruleToggle">展开全部规则</button>
       </section>
 
       <section id="flow" class="flow-collapsed">
@@ -466,8 +473,10 @@
         </div>
       </section>
 
-      <section id="promo">
+      <section id="promo" class="promo-collapsed">
         <h2><span class="dot"></span> 投稿参考</h2>
+        <div class="promo-summary">图片视频 · 关键词模板 · 热门标签 · 注意事项</div>
+        <button class="promo-toggle" type="button" id="promoToggle">展开详情</button>
         <div class="promo-grid">
           <div class="promo-card">
             <h3>图片与视频</h3>
@@ -476,7 +485,7 @@
               <li>视频：封面是点击的秘诀</li>
             </ul>
           </div>
-          <div class="promo-card">
+          <div class="promo-card more">
             <h3>关键词标题模板（更容易被搜到）</h3>
             <div class="meta">公式：<span class="mini-chip tag">人群/设备</span> + <span class="mini-chip tag">场景</span> + <span class="mini-chip tag">核心关键词</span> + <span class="mini-chip tag">结果/承诺</span></div>
             <div class="title-ideas">
@@ -511,7 +520,7 @@
               </div>
             </div>
           </div>
-          <div class="promo-card">
+          <div class="promo-card more">
             <h3>热门标题 · 话题标签</h3>
             <div class="hashtag-cloud" style="margin-top:4px;">
               <span class="hash">#AndPods</span>
@@ -527,7 +536,7 @@
               <span class="hash">#教程</span>
             </div>
           </div>
-          <div class="promo-card">
+          <div class="promo-card more">
             <h3>注意事项</h3>
             <ul class="note-list">
               <li><span class="mini-chip accent">保存时长</span>：笔记至少保留 <strong>1 周</strong>（含封面/标题/正文）。</li>
@@ -593,7 +602,7 @@
       if (ruleGrid && ruleToggle) {
         ruleToggle.addEventListener('click', ()=>{
           const collapsed = ruleGrid.classList.toggle('collapsed');
-          ruleToggle.textContent = collapsed ? '展开全部规则' : '收起部分规则';
+          ruleToggle.textContent = collapsed ? '展开规则' : '收起规则';
         });
       }
       // 领奖流程折叠/展开
@@ -603,6 +612,15 @@
         flowToggle.addEventListener('click', ()=>{
           const collapsed = flow.classList.toggle('flow-collapsed');
           flowToggle.textContent = collapsed ? '展开详情' : '收起详情';
+        });
+      }
+      // 投稿参考折叠/展开
+      const promo = document.getElementById('promo');
+      const promoToggle = document.getElementById('promoToggle');
+      if (promo && promoToggle) {
+        promoToggle.addEventListener('click', ()=>{
+          const collapsed = promo.classList.toggle('promo-collapsed');
+          promoToggle.textContent = collapsed ? '展开详情' : '收起详情';
         });
       }
     </script>
